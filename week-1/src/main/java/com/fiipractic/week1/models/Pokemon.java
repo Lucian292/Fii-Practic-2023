@@ -1,35 +1,38 @@
 package com.fiipractic.week1.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Pokemon {
 
-    private Integer ID;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String name;
     private String type;
     private String trainer;
     private Integer level;
 
-    public Pokemon(Integer ID, String name, String type, String trainer, Integer level) {
-        this.ID = ID;
+    public Pokemon(Integer id, String name, String type, String trainer, Integer level) {
+        this.id = id;
         this.name = name;
         this.type = type;
         this.trainer = trainer;
         this.level = level;
     }
 
-    public String getType() {
-        return type;
+    public Pokemon() {
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public Integer getId() {
+        return id;
     }
 
-    public Integer getID() {
-        return ID;
-    }
-
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -38,6 +41,14 @@ public class Pokemon {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getTrainer() {
@@ -59,12 +70,11 @@ public class Pokemon {
     @Override
     public String toString() {
         return "Pokemon{" +
-                "ID=" + ID +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", trainer='" + trainer + '\'' +
                 ", level=" + level +
                 '}';
     }
-
 }
